@@ -269,11 +269,11 @@ class DailySEOAnalyzer:
         return "; ".join(notes) if notes else "All areas look good"
 
 def get_danish_time_string():
-    """Get current time in Danish timezone formatted as YYYY-MM-DD HH:MM"""
+    """Get current time in Danish timezone formatted as YYYY-MM-DD HH:MM:SS"""
     # Danish timezone (CET/CEST)
     danish_tz = pytz.timezone('Europe/Copenhagen')
     danish_time = datetime.now(danish_tz)
-    return danish_time.strftime('%Y-%m-%d %H:%M')
+    return danish_time.strftime('%Y-%m-%d %H:%M:%S')
 
 def upload_to_snowflake(data):
     """Upload analysis data to Snowflake"""
