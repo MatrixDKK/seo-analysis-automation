@@ -2,11 +2,11 @@ name: Daily SEO Analysis
 
 on:
   schedule:
-    # Run daily at 14:55 Danish time (CET/CEST)
-    # 14:55 CET = 13:55 UTC (winter time)
-    # 14:55 CEST = 12:55 UTC (summer time)
-    # Using 12:55 UTC to ensure it runs at 14:55 Danish time during summer
-    - cron: '55 12 * * *'
+    # Run daily at 15:08 Danish time (CET/CEST)
+    # 15:08 CET = 14:08 UTC (winter time)
+    # 15:08 CEST = 13:08 UTC (summer time)
+    # Using 13:08 UTC to ensure it runs at 15:08 Danish time during summer
+    - cron: '08 13 * * *'
   workflow_dispatch: # Allow manual triggering
 
 jobs:
