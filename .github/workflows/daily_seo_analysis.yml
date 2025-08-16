@@ -2,10 +2,11 @@ name: Daily SEO Analysis
 
 on:
   schedule:
-    # Run once today at 14:55 Danish time (CET/CEST) for testing
+    # Run daily at 14:55 Danish time (CET/CEST)
+    # 14:55 CET = 13:55 UTC (winter time)
     # 14:55 CEST = 12:55 UTC (summer time)
-    # This will run only once on August 16, 2025
-    - cron: '55 12 16 8 *'
+    # Using 12:55 UTC to ensure it runs at 14:55 Danish time during summer
+    - cron: '55 12 * * *'
   workflow_dispatch: # Allow manual triggering
 
 jobs:
