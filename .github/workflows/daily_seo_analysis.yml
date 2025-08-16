@@ -1,0 +1,60 @@
+name: Daily SEO Analysis
+
+on:
+  schedule:
+    # Run daily at 9:00 AM UTC (adjust timezone as needed)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  seo-analysis:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 snowflake-connector-python pandas
+        
+    - name: Create Snowflake config
+      run: |
+        # Create snowflake_config.py with secrets
+        cat > snowflake_config.py << 'EOF'
+        import os
+        
+        SNOWFLAKE_CONFIG = {
+            'user': os.environ['SNOWFLAKE_USER'],
+            'password': os.environ['SNOWFLAKE_PASSWORD'],
+            'account': os.environ['SNOWFLAKE_ACCOUNT'],
+            'warehouse': 'SEO',
+            'database': 'SEO_DB',
+            'schema': 'SEO'
+        }
+        
+        def get_snowflake_config():
+            return SNOWFLAKE_CONFIG
+        EOF
+        
+    - name: Run SEO Analysis and Upload
+      env:
+        SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+        SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+        SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      run: |
+        python3 daily_seo_analysis.py
+        
+    - name: Upload results as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: seo-analysis-results
+        path: |
+          seo_analysis_results.json
+          daily_analysis_log.txt
