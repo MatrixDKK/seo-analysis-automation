@@ -16,7 +16,7 @@ Your SEO analysis automation is now **LIVE** and running in production!
 ### ✅ **GitHub Actions Workflow Configured**
 - **Schedule**: Daily at 14:55 Danish time (12:55 UTC during summer time)
 - **Workflow**: `.github/workflows/daily_seo_analysis.yml`
-- **Status**: Ready to run
+- **Status**: ✅ Active and running daily
 
 ### ✅ **Snowflake Infrastructure Ready**
 - **Warehouse**: SEO (X-SMALL)
@@ -35,7 +35,7 @@ Your SEO analysis automation is now **LIVE** and running in production!
 
 ## 🕘 **Daily Schedule**
 
-### **Automated Analysis (14:55 Danish Time - Once Daily)**
+### **Automated Analysis (14:55 Danish Time - Daily)**
 1. **Google Ranking Check**: Searches for "snowflake consultants copenhagen"
 2. **Page Analysis**: Analyzes 3 Devoteam pages
 3. **SEO Metrics**: Calculates Local, Content, Technical, and UX scores
