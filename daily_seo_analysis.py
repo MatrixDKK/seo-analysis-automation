@@ -40,16 +40,40 @@ class DailySEOAnalyzer:
             soup = BeautifulSoup(response.text, 'html.parser')
             devoteam_position = "Not found in top results"
             
-            # Look for Devoteam's specific URL
-            devoteam_link = "https://www.devoteam.com/snowflake-elite-partner/"
+            # Check if we got blocked by Google
+            if 'support.google.com' in response.text or 'google.com/sorry' in response.text:
+                logging.warning("Google appears to have blocked the request")
+                return {
+                    'search_query': search_query,
+                    'position': "Blocked by Google",
+                    'timestamp': datetime.now().isoformat(),
+                    'error': 'Google blocked automated request'
+                }
+            
+            # Look for Devoteam URLs with multiple variations
+            devoteam_patterns = [
+                "devoteam.com/snowflake-elite-partner",
+                "devoteam.com/snowflake",
+                "devoteam.com",
+                "devoteam.dk"
+            ]
+            
             all_links = soup.find_all('a', href=True)
+            logging.info(f"Found {len(all_links)} total links in search results")
             
             for i, link in enumerate(all_links):
                 href = link.get('href', '')
-                if devoteam_link in href:
+                # Check for any Devoteam URL pattern
+                if any(pattern in href for pattern in devoteam_patterns):
                     devoteam_position = i + 1
-                    logging.info(f"Found Devoteam at position: {devoteam_position}")
+                    logging.info(f"Found Devoteam at position: {devoteam_position} with URL: {href}")
                     break
+            
+            if devoteam_position == "Not found in top results":
+                logging.info("Devoteam not found in top search results")
+                # Log some of the URLs we found for debugging
+                top_urls = [link.get('href', '') for link in all_links[:5] if link.get('href', '').startswith('http')]
+                logging.info(f"Top URLs found: {top_urls}")
             
             return {
                 'search_query': search_query,
@@ -298,7 +322,7 @@ def upload_to_snowflake(data):
             
             # Handle ranking position properly
             position = ranking.get('position')
-            if isinstance(position, str) and ('Not found' in position or 'Error' in position):
+            if isinstance(position, str) and ('Not found' in position or 'Error' in position or 'Blocked' in position):
                 position = None
             elif isinstance(position, str) and position.isdigit():
                 position = int(position)
