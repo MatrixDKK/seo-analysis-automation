@@ -8,6 +8,7 @@ import json
 import snowflake.connector
 from datetime import datetime
 import logging
+import pytz
 
 # Set up logging
 logging.basicConfig(
@@ -267,6 +268,13 @@ class DailySEOAnalyzer:
         
         return "; ".join(notes) if notes else "All areas look good"
 
+def get_danish_time_string():
+    """Get current time in Danish timezone formatted as YYYY-MM-DD HH:MM"""
+    # Danish timezone (CET/CEST)
+    danish_tz = pytz.timezone('Europe/Copenhagen')
+    danish_time = datetime.now(danish_tz)
+    return danish_time.strftime('%Y-%m-%d %H:%M')
+
 def upload_to_snowflake(data):
     """Upload analysis data to Snowflake"""
     try:
@@ -297,7 +305,7 @@ def upload_to_snowflake(data):
             
             cursor.execute("""
             INSERT INTO SEOdevoteamdatadriven (
-                page_url, page_title, google_ranking_position, search_query,
+                analysis_date, page_url, page_title, google_ranking_position, search_query,
                 local_seo_score, content_quality_score, technical_seo_score, user_experience_score, overall_score,
                 copenhagen_mentions, denmark_mentions, danish_mentions, snowflake_keyword_count,
                 contact_info_present, local_address_present, danish_phone_present,
@@ -306,9 +314,10 @@ def upload_to_snowflake(data):
                 schema_markup_count, structured_data_count, social_tags_count,
                 load_time_seconds, content_size_bytes, improvement_priority, notes
             ) VALUES (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )
             """, (
+                get_danish_time_string(),
                 'https://www.devoteam.com/snowflake-elite-partner/',  # Use the main page URL
                 'Snowflake Elite Partner: Data & AI | Devoteam',  # Use the main page title
                 position,
@@ -346,7 +355,7 @@ def upload_to_snowflake(data):
         for page_data in data.get('pages', []):
             cursor.execute("""
             INSERT INTO SEOdevoteamdatadriven (
-                page_url, page_title, google_ranking_position, search_query,
+                analysis_date, page_url, page_title, google_ranking_position, search_query,
                 local_seo_score, content_quality_score, technical_seo_score, user_experience_score, overall_score,
                 copenhagen_mentions, denmark_mentions, danish_mentions, snowflake_keyword_count,
                 contact_info_present, local_address_present, danish_phone_present,
@@ -355,9 +364,10 @@ def upload_to_snowflake(data):
                 schema_markup_count, structured_data_count, social_tags_count,
                 load_time_seconds, content_size_bytes, improvement_priority, notes
             ) VALUES (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )
             """, (
+                get_danish_time_string(),
                 page_data.get('url', ''),
                 page_data.get('page_title', ''),
                 None,  # No ranking position for individual pages

@@ -1,15 +1,15 @@
 {
-  "timestamp": "2025-08-16T14:03:00.986852",
+  "timestamp": "2025-08-16T14:43:05.170126",
   "ranking": {
     "search_query": "snowflake consultants copenhagen",
     "position": "Not found in top results",
-    "timestamp": "2025-08-16T14:02:53.460773"
+    "timestamp": "2025-08-16T14:42:55.907317"
   },
   "pages": [
     {
       "url": "https://www.devoteam.com/snowflake-elite-partner/",
       "page_title": "Snowflake Elite Partner: Data & AI | Devoteam",
-      "load_time": 0.22141408920288086,
+      "load_time": 0.9958269596099854,
       "content_size": 277554,
       "local_seo_score": 1.5,
       "content_quality_score": 3.0,
@@ -40,7 +40,7 @@
     {
       "url": "https://www.devoteam.com/",
       "page_title": "Devoteam - AI-driven Tech Consulting",
-      "load_time": 0.07488393783569336,
+      "load_time": 0.08563494682312012,
       "content_size": 323779,
       "local_seo_score": 1.5,
       "content_quality_score": 3.0,
@@ -71,7 +71,7 @@
     {
       "url": "https://www.devoteam.com/contact/",
       "page_title": "Contact Devoteam",
-      "load_time": 0.977820873260498,
+      "load_time": 1.9129648208618164,
       "content_size": 174545,
       "local_seo_score": 1.5,
       "content_quality_score": 2.0,

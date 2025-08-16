@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 snowflake-connector-python pandas
+        pip install requests beautifulsoup4 snowflake-connector-python pandas pytz
         
     - name: Create Snowflake config
       run: |

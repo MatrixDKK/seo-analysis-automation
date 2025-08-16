@@ -55,7 +55,7 @@ def create_snowflake_infrastructure():
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS SEOdevoteamdatadriven (
             id NUMBER AUTOINCREMENT PRIMARY KEY,
-            analysis_date TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+            analysis_date STRING,
             page_url STRING,
             page_title STRING,
             google_ranking_position NUMBER,
@@ -111,8 +111,10 @@ def create_snowflake_infrastructure():
             improvement_priority
         FROM SEOdevoteamdatadriven
         WHERE analysis_date = (
-            SELECT MAX(analysis_date) 
-            FROM SEOdevoteamdatadriven
+            SELECT analysis_date 
+            FROM SEOdevoteamdatadriven 
+            ORDER BY analysis_date DESC 
+            LIMIT 1
         )
         """)
         print("✅ v_latest_seo_analysis view created successfully")

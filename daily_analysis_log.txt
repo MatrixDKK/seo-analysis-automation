@@ -18,3 +18,23 @@
 2025-08-16 14:03:00,993 - INFO - Connecting to GLOBAL Snowflake domain
 2025-08-16 14:03:03,496 - INFO - ✅ Data uploaded to Snowflake successfully
 2025-08-16 14:03:03,497 - INFO - 🎉 Daily SEO analysis completed successfully!
+2025-08-16 14:04:41,455 - INFO - 🚀 Starting daily SEO analysis...
+2025-08-16 14:04:41,455 - INFO - Checking Google ranking for: snowflake consultants copenhagen
+2025-08-16 14:04:41,608 - INFO - Analyzing SEO for: https://www.devoteam.com/snowflake-elite-partner/
+2025-08-16 14:04:44,527 - INFO - Analyzing SEO for: https://www.devoteam.com/
+2025-08-16 14:04:46,692 - INFO - Analyzing SEO for: https://www.devoteam.com/contact/
+2025-08-16 14:04:48,917 - INFO - 📄 Analysis results saved to seo_analysis_results.json
+2025-08-16 14:04:48,918 - INFO - Snowflake Connector for Python Version: 3.16.0, Python Version: 3.9.6, Platform: macOS-15.6-arm64-arm-64bit
+2025-08-16 14:04:48,918 - INFO - Connecting to GLOBAL Snowflake domain
+2025-08-16 14:04:52,136 - INFO - ✅ Data uploaded to Snowflake successfully
+2025-08-16 14:04:52,136 - INFO - 🎉 Daily SEO analysis completed successfully!
+2025-08-16 14:42:55,737 - INFO - 🚀 Starting daily SEO analysis...
+2025-08-16 14:42:55,738 - INFO - Checking Google ranking for: snowflake consultants copenhagen
+2025-08-16 14:42:55,907 - INFO - Analyzing SEO for: https://www.devoteam.com/snowflake-elite-partner/
+2025-08-16 14:42:59,003 - INFO - Analyzing SEO for: https://www.devoteam.com/
+2025-08-16 14:43:01,175 - INFO - Analyzing SEO for: https://www.devoteam.com/contact/
+2025-08-16 14:43:05,172 - INFO - 📄 Analysis results saved to seo_analysis_results.json
+2025-08-16 14:43:05,175 - INFO - Snowflake Connector for Python Version: 3.16.0, Python Version: 3.9.6, Platform: macOS-15.6-arm64-arm-64bit
+2025-08-16 14:43:05,176 - INFO - Connecting to GLOBAL Snowflake domain
+2025-08-16 14:43:14,380 - INFO - ✅ Data uploaded to Snowflake successfully
+2025-08-16 14:43:14,381 - INFO - 🎉 Daily SEO analysis completed successfully!
