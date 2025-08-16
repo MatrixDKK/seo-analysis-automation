@@ -1,12 +1,12 @@
-# ⏰ One-Time Test Schedule - SEO Analysis Automation
+# ⏰ Daily Schedule - SEO Analysis Automation
 
-## ✅ **Test Schedule Set Successfully**
+## ✅ **Daily Schedule Set Successfully**
 
-### **Test Schedule:**
+### **Daily Schedule:**
 - **Time**: 14:55 Danish time (CET/CEST)
-- **Frequency**: One-time only (today)
+- **Frequency**: Daily
 - **UTC Time**: 12:55 UTC (during summer time)
-- **Date**: August 16, 2025
+- **Next Run**: Tomorrow at 14:55 Danish time
 
 ### **Previous Schedule:**
 - **Time**: 9:00 AM UTC
@@ -23,8 +23,8 @@
 - ✅ **Consistent**: Same time every day regardless of daylight saving changes
 - ✅ **Cloud-Based**: Still runs even when your computer is off
 
-### **Test Run:**
-The automation will run at **14:55 Danish time today** as a one-time test to verify the scheduler works correctly.
+### **Daily Runs:**
+The automation will run at **14:55 Danish time every day** to continuously monitor Devoteam's SEO performance.
 
 ### **Monitoring:**
 - **GitHub Actions**: https://github.com/MatrixDKK/seo-analysis-automation/actions
@@ -32,4 +32,4 @@ The automation will run at **14:55 Danish time today** as a one-time test to ver
 
 ---
 
-**🎉 Test schedule set! Your SEO analysis will run once today at 14:55 Danish time to test the scheduler.**
+**🎉 Daily schedule activated! Your SEO analysis will run every day at 14:55 Danish time for continuous monitoring.**
