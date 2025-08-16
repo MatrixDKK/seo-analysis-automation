@@ -52,7 +52,7 @@ jobs:
         python3 daily_seo_analysis.py
         
     - name: Upload results as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: seo-analysis-results
         path: |
